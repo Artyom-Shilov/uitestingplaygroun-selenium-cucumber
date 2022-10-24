@@ -17,7 +17,11 @@ public class PageManager {
                 "dynamicIdExercisePage", new DynamicIdExercisePage(DriverUtil.getDriver()),
                 "classAttributeExercisePage", new ClassAttributeExercisePage(DriverUtil.getDriver()),
                 "hiddenLayersExercisePage", new HiddenLayersExercisePage(DriverUtil.getDriver()),
-                "loadDelayExercisePage", new LoadDelayExercisePage(DriverUtil.getDriver())
+                "loadDelayExercisePage", new LoadDelayExercisePage(DriverUtil.getDriver()),
+                "ajaxDataExercisePage", new AJAXDataExercisePage(DriverUtil.getDriver()),
+                "clientSideDelayExercisePage", new ClientSideDelayExercisePage(DriverUtil.getDriver()),
+                "clickExercisePage", new ClickExercisePage(DriverUtil.getDriver()),
+                "textInputExercisePage", new TextInputExercisePage(DriverUtil.getDriver())
         );
     }
 
@@ -39,6 +43,22 @@ public class PageManager {
 
     public static LoadDelayExercisePage getLoadDelayExercisePage() {
         return (LoadDelayExercisePage) pages.get("loadDelayExercisePage");
+    }
+
+    public static AJAXDataExercisePage getAJAXDataExercisePage() {
+        return (AJAXDataExercisePage) pages.get("ajaxDataExercisePage");
+    }
+
+    public static ClientSideDelayExercisePage getClientSideDelayPage() {
+        return (ClientSideDelayExercisePage) pages.get("clientSideDelayExercisePage");
+    }
+
+    public static ClickExercisePage getClickExercisePage() {
+        return (ClickExercisePage) pages.get("clickExercisePage");
+    }
+
+    public static TextInputExercisePage getTextInputExercisePage() {
+        return (TextInputExercisePage) pages.get("textInputExercisePage");
     }
 
 

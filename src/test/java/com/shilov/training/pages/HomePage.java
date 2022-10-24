@@ -1,9 +1,10 @@
 package com.shilov.training.pages;
 
-import com.shilov.training.utills.Waiting;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
+import static com.shilov.training.utills.Waiting.*;
 
 public class HomePage extends BasePage {
 
@@ -21,6 +22,17 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//a[@href = '/loaddelay']")
     private WebElement loadDelayExerciseLink;
 
+    @FindBy(xpath = "//a[@href = '/ajax']")
+    private WebElement ajaxDataExerciseLink;
+
+    @FindBy(xpath = "//a[@href = '/clientdelay']")
+    private WebElement clientDelayExerciseLink;
+
+    @FindBy(xpath = "//a[@href = '/click']")
+    private WebElement clickExerciseLink;
+
+    @FindBy(xpath = "//a[@href = '/textinput']")
+    private WebElement textInputExerciseLink;
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -32,19 +44,35 @@ public class HomePage extends BasePage {
     }
 
     public void openDynamicIdExercisePage() {
-        Waiting.waitForBeingClickable(driver, 10, dynamicIdExerciseLink).click();
+        waitForBeingClickable(driver, 10, dynamicIdExerciseLink).click();
     }
 
     public void openClassAttributeExercisePage() {
-        Waiting.waitForBeingClickable(driver, 10, classAttributeExerciseLink).click();
+        waitForBeingClickable(driver, 10, classAttributeExerciseLink).click();
     }
 
     public void openHiddenLayersExercisePage() {
-        Waiting.waitForBeingClickable(driver, 10, hiddenLayersExerciseLink).click();
+        waitForBeingClickable(driver, 10, hiddenLayersExerciseLink).click();
     }
 
     public void openLoadDelayExercisePage() {
-        Waiting.waitForBeingClickable(driver, 10, loadDelayExerciseLink).click();
+        waitForBeingClickable(driver, 10, loadDelayExerciseLink).click();
+    }
+
+    public void openAJAXDataExercisePage() {
+        waitForBeingClickable(driver, 10, ajaxDataExerciseLink).click();
+    }
+
+    public void openClientSideDelayExercisePage() {
+        waitForBeingClickable(driver, 10, clientDelayExerciseLink).click();
+    }
+
+    public void openClickExercisePage() {
+        waitForBeingClickable(driver, 10, clickExerciseLink).click();
+    }
+
+    public void openTextInputExercisePage() {
+        waitForBeingClickable(driver, 10, textInputExerciseLink).click();
     }
 
 }
