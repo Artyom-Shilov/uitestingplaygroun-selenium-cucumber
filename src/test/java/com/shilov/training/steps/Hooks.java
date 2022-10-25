@@ -12,7 +12,7 @@ public class Hooks {
         PageManager.resetPages();
     }
 
-    @After
+    //@After
     public void setAfter() {
         DriverUtil.quitDriver();
     }

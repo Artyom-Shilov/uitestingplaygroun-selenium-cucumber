@@ -51,3 +51,21 @@ Feature: implementation of exercises from uitestingplayground.com
     |button name|
     |test       |
     |new name   |
+
+
+  @ProgressBar
+  Scenario Outline: start progress bar and stop it when it reaches certain value
+    Given progress bar exercise page is opened
+    When user clicks start bar button
+    And user clicks stop button when bar reaches "<bar value>" value
+    Then result value must be positive and less than 5
+
+    Examples:
+    |bar value|
+    |75       |
+    |76       |
+
+  @DynamicTable
+  Scenario: get text value of chrome CPU consumption from dynamic table
+    Given dynamic table exercise is opened
+    Then text value of chrome CPU consumption from dynamic table cell and label must be the same

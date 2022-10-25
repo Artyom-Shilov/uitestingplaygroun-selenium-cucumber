@@ -12,17 +12,19 @@ public class PageManager {
     private static Map<String, BasePage> pages;
 
     public static void resetPages() {
-        pages = Map.of(
-                "homePage", new HomePage(DriverUtil.getDriver()),
-                "dynamicIdExercisePage", new DynamicIdExercisePage(DriverUtil.getDriver()),
-                "classAttributeExercisePage", new ClassAttributeExercisePage(DriverUtil.getDriver()),
-                "hiddenLayersExercisePage", new HiddenLayersExercisePage(DriverUtil.getDriver()),
-                "loadDelayExercisePage", new LoadDelayExercisePage(DriverUtil.getDriver()),
-                "ajaxDataExercisePage", new AJAXDataExercisePage(DriverUtil.getDriver()),
-                "clientSideDelayExercisePage", new ClientSideDelayExercisePage(DriverUtil.getDriver()),
-                "clickExercisePage", new ClickExercisePage(DriverUtil.getDriver()),
-                "textInputExercisePage", new TextInputExercisePage(DriverUtil.getDriver())
-        );
+        pages = Map.ofEntries(
+                Map.entry("homePage", new HomePage(DriverUtil.getDriver())),
+                Map.entry("dynamicIdExercisePage", new DynamicIdExercisePage(DriverUtil.getDriver())),
+                Map.entry("classAttributeExercisePage", new ClassAttributeExercisePage(DriverUtil.getDriver())),
+                Map.entry("hiddenLayersExercisePage", new HiddenLayersExercisePage(DriverUtil.getDriver())),
+                Map.entry("loadDelayExercisePage", new LoadDelayExercisePage(DriverUtil.getDriver())),
+                Map.entry("ajaxDataExercisePage", new AJAXDataExercisePage(DriverUtil.getDriver())),
+                Map.entry("clientSideDelayExercisePage", new ClientSideDelayExercisePage(DriverUtil.getDriver())),
+                Map.entry("clickExercisePage", new ClickExercisePage(DriverUtil.getDriver())),
+                Map.entry("textInputExercisePage", new TextInputExercisePage(DriverUtil.getDriver())),
+                Map.entry("progressBarExercisePage", new ProgressBarExercisePage(DriverUtil.getDriver())),
+                Map.entry("dynamicTableExercisePage", new DynamicTableExercisePage(DriverUtil.getDriver()))
+                );
     }
 
     public static HomePage getHomePage() {
@@ -59,6 +61,14 @@ public class PageManager {
 
     public static TextInputExercisePage getTextInputExercisePage() {
         return (TextInputExercisePage) pages.get("textInputExercisePage");
+    }
+
+    public static ProgressBarExercisePage getProgressBarExercisePage() {
+        return (ProgressBarExercisePage) pages.get("progressBarExercisePage");
+    }
+
+    public static DynamicTableExercisePage getDynamicTableExercisePage() {
+        return (DynamicTableExercisePage) pages.get("dynamicTableExercisePage");
     }
 
 

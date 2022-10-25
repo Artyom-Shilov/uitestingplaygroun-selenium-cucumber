@@ -34,6 +34,12 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//a[@href = '/textinput']")
     private WebElement textInputExerciseLink;
 
+    @FindBy(xpath = "//a[@href = '/progressbar']")
+    private WebElement progressBarExerciseLink;
+
+    @FindBy(xpath = "//a[@href = '/dynamictable']")
+    private WebElement dynamicTableExerciseLink;
+
     public HomePage(WebDriver driver) {
         super(driver);
     }
@@ -73,6 +79,14 @@ public class HomePage extends BasePage {
 
     public void openTextInputExercisePage() {
         waitForBeingClickable(driver, 10, textInputExerciseLink).click();
+    }
+
+    public void openProgressBarExercisePage() {
+        waitForBeingClickable(driver, 10, progressBarExerciseLink).click();
+    }
+
+    public void openDynamicTableExercisePage() {
+        waitForBeingClickable(driver, 10, dynamicTableExerciseLink).click();
     }
 
 }
