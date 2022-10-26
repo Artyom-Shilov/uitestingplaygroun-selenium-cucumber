@@ -14,3 +14,15 @@ Click exercise
 mvn -Dbrowser=chrome -Dcucumber.filter.tags=@Click clean test
 Text input exercise
 mvn -Dbrowser=chrome -Dcucumber.filter.tags=@TextInput clean test
+Progress bar exercise
+mvn -Dbrowser=chrome -Dcucumber.filter.tags=@ProgressBar clean test
+Dynamic table exercise
+mvn -Dbrowser=chrome -Dcucumber.filter.tags=@DynamicTable clean test
+Scrollbars exercise
+mvn -Dbrowser=chrome -Dcucumber.filter.tags=@Scrollbars clean test
+Visibility exercise
+mvn -Dbrowser=chrome -Dcucumber.filter.tags=@Visibility clean test
+Mouse over exercise
+mvn -Dbrowser=chrome -Dcucumber.filter.tags=@MouseOver clean test
+
+

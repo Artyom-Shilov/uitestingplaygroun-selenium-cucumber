@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+
 import static com.shilov.training.utills.Waiting.*;
 
 public class HomePage extends BasePage {
@@ -39,6 +40,15 @@ public class HomePage extends BasePage {
 
     @FindBy(xpath = "//a[@href = '/dynamictable']")
     private WebElement dynamicTableExerciseLink;
+
+    @FindBy(xpath = "//a[@href = '/scrollbars']")
+    private WebElement scrollbarsExerciseLink;
+
+    @FindBy(xpath = "//a[@href = '/visibility']")
+    private WebElement visibilityExerciseLink;
+
+    @FindBy(xpath = "//a[@href = '/mouseover']")
+    private WebElement mouseOverExerciseLink;
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -87,6 +97,18 @@ public class HomePage extends BasePage {
 
     public void openDynamicTableExercisePage() {
         waitForBeingClickable(driver, 10, dynamicTableExerciseLink).click();
+    }
+
+    public void openScrollbarsExercisePage() {
+        waitForBeingClickable(driver, 10, scrollbarsExerciseLink).click();
+    }
+
+    public void openVisibilityExercisePage() {
+        waitForBeingClickable(driver, 10, visibilityExerciseLink).click();
+    }
+
+    public void openMouseOverExercisePage() {
+        waitForBeingClickable(driver, 10, mouseOverExerciseLink).click();
     }
 
 }

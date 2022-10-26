@@ -23,7 +23,10 @@ public class PageManager {
                 Map.entry("clickExercisePage", new ClickExercisePage(DriverUtil.getDriver())),
                 Map.entry("textInputExercisePage", new TextInputExercisePage(DriverUtil.getDriver())),
                 Map.entry("progressBarExercisePage", new ProgressBarExercisePage(DriverUtil.getDriver())),
-                Map.entry("dynamicTableExercisePage", new DynamicTableExercisePage(DriverUtil.getDriver()))
+                Map.entry("dynamicTableExercisePage", new DynamicTableExercisePage(DriverUtil.getDriver())),
+                Map.entry("scrollbarsExercisePage", new ScrollbarsExercisePage(DriverUtil.getDriver())),
+                Map.entry("visibilityExercisePage", new VisibilityExercisePage(DriverUtil.getDriver())),
+                Map.entry("mouseOverExercisePage", new MouseOverExercisePage(DriverUtil.getDriver()))
                 );
     }
 
@@ -71,6 +74,17 @@ public class PageManager {
         return (DynamicTableExercisePage) pages.get("dynamicTableExercisePage");
     }
 
+    public static ScrollbarsExercisePage getScrollbarsExercisePage() {
+        return (ScrollbarsExercisePage) pages.get("scrollbarsExercisePage");
+    }
+
+    public static VisibilityExercisePage getVisibilityExercisePage() {
+        return (VisibilityExercisePage) pages.get("visibilityExercisePage");
+    }
+
+    public static MouseOverExercisePage getMouseOverExercisePage() {
+        return (MouseOverExercisePage) pages.get("mouseOverExercisePage");
+    }
 
 
 }

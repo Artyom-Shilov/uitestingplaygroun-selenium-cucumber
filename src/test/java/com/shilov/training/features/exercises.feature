@@ -69,3 +69,30 @@ Feature: implementation of exercises from uitestingplayground.com
   Scenario: get text value of chrome CPU consumption from dynamic table
     Given dynamic table exercise is opened
     Then text value of chrome CPU consumption from dynamic table cell and label must be the same
+
+  @Scrollbars
+  Scenario: scroll to button and click it
+    Given scrollbar exercise page is opened
+    When user scrolls to hiding button
+    Then user clicks hiding button
+
+  @Visibility
+  Scenario: using different kinds of hiding and checking if buttons displayed or not
+    Given visibility exercise page is opened
+    When user clicks hide button
+    Then display statuses of other buttons should be
+    |opacity0Button        |false|
+    |removedButton         |false|
+    |visibilityHiddenButton|false|
+    |zeroWidthButton       |false|
+    |displayNoneButton     |false|
+    |overlappedButton      |true |
+    |offscreenButton       |false|
+
+
+  @MouseOver
+  Scenario: Placing mouse over link and click it
+    Given mouse over exercise page is opened
+    When user moves mouse to link
+    And user clicks two times
+    Then click count should be 2
