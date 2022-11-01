@@ -1,5 +1,7 @@
 package com.shilov.training.pages;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,6 +10,8 @@ import org.openqa.selenium.support.FindBy;
 import java.util.List;
 
 public class DynamicTableExercisePage extends BasePage {
+
+    private final Logger logger = LogManager.getLogger(DynamicTableExercisePage.class);
 
     @FindBy(xpath = "//div[@role = 'rowgroup'][1]//span")
     private List<WebElement> fieldsOfTable;
@@ -27,14 +31,18 @@ public class DynamicTableExercisePage extends BasePage {
     }
 
     public String getChromeCpuConsumptionFromTableCell() {
-        return driver.findElement(By.xpath(String.format(
-                CHROME_CPU_CELL_PATTERN, getNumberOfChromeCellInColumn(), getNumberOfCpuCellInRow()))).getText();
+        String chromeCpuConsumptionCellXpath = String.format(
+                CHROME_CPU_CELL_PATTERN, getNumberOfChromeCellInColumn(), getNumberOfCpuCellInRow());
+        logger.debug("chrome cpu consumption cell xpath: " + chromeCpuConsumptionCellXpath);
+        return driver.findElement(By.xpath(chromeCpuConsumptionCellXpath)).getText();
     }
 
     private int getNumberOfCpuCellInRow() {
         for (int i = 0; i < fieldsOfTable.size(); i++)  {
             if (fieldsOfTable.get(i).getText().equals(CPU_CELL_TEXT)) {
-                return i + 1;
+                int cellNumber = i + 1;
+                logger.debug("number of cpu cell is " + cellNumber);
+                return cellNumber;
             }
         }
         return -1;
@@ -44,7 +52,9 @@ public class DynamicTableExercisePage extends BasePage {
     private int getNumberOfChromeCellInColumn() {
         for (int i = 0; i < firstColumnOfTable.size(); i++)  {
             if (firstColumnOfTable.get(i).getText().equals(CHROME_CELL_TEXT)) {
-                return i + 1;
+                int cellNumber = i + 1;
+                logger.debug("number of Chrome cell in column is " + cellNumber);
+                return cellNumber;
             }
         }
         return -1;

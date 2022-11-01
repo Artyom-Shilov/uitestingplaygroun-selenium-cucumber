@@ -1,13 +1,14 @@
 package com.shilov.training.pages;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-
-import static com.shilov.training.utills.Waiting.*;
-
 public class HomePage extends BasePage {
+
+    private final Logger logger = LogManager.getLogger(HomePage.class);
 
     private static final String HOME_PAGE_URL = "http://uitestingplayground.com/";
 
@@ -50,6 +51,9 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//a[@href = '/mouseover']")
     private WebElement mouseOverExerciseLink;
 
+    @FindBy(xpath = "//a[@href = '/sampleapp']")
+    private WebElement sampleAppExerciseLink;
+
     public HomePage(WebDriver driver) {
         super(driver);
     }
@@ -60,55 +64,76 @@ public class HomePage extends BasePage {
     }
 
     public void openDynamicIdExercisePage() {
-        waitForBeingClickable(driver, 10, dynamicIdExerciseLink).click();
+        waitForBeingClickable(10, dynamicIdExerciseLink).click();
+        logger.debug("dynamic id exercise link has been clicked");
     }
 
     public void openClassAttributeExercisePage() {
-        waitForBeingClickable(driver, 10, classAttributeExerciseLink).click();
+        waitForBeingClickable(10, classAttributeExerciseLink).click();
+        logger.debug("class attribute exercise link has been clicked");
+
     }
 
     public void openHiddenLayersExercisePage() {
-        waitForBeingClickable(driver, 10, hiddenLayersExerciseLink).click();
+        waitForBeingClickable(10, hiddenLayersExerciseLink).click();
+        logger.debug("hidden layers exercise link has been clicked");
     }
 
     public void openLoadDelayExercisePage() {
-        waitForBeingClickable(driver, 10, loadDelayExerciseLink).click();
+        waitForBeingClickable(10, loadDelayExerciseLink).click();
+        logger.debug("load delay exercise link has been clicked");
+
     }
 
     public void openAJAXDataExercisePage() {
-        waitForBeingClickable(driver, 10, ajaxDataExerciseLink).click();
+        waitForBeingClickable(10, ajaxDataExerciseLink).click();
+        logger.debug("ajax data exercise link has been clicked");
+
     }
 
     public void openClientSideDelayExercisePage() {
-        waitForBeingClickable(driver, 10, clientDelayExerciseLink).click();
+        waitForBeingClickable(10, clientDelayExerciseLink).click();
+        logger.debug("client delay exercise link has been clicked");
     }
 
     public void openClickExercisePage() {
-        waitForBeingClickable(driver, 10, clickExerciseLink).click();
+        waitForBeingClickable(10, clickExerciseLink).click();
+        logger.debug("click exercise link has been clicked");
     }
 
     public void openTextInputExercisePage() {
-        waitForBeingClickable(driver, 10, textInputExerciseLink).click();
+        waitForBeingClickable(10, textInputExerciseLink).click();
+        logger.debug("text input exercise link has been clicked");
+
     }
 
     public void openProgressBarExercisePage() {
-        waitForBeingClickable(driver, 10, progressBarExerciseLink).click();
+        waitForBeingClickable(10, progressBarExerciseLink).click();
+        logger.debug("progress bar exercise link has been clicked");
     }
 
     public void openDynamicTableExercisePage() {
-        waitForBeingClickable(driver, 10, dynamicTableExerciseLink).click();
+        waitForBeingClickable(10, dynamicTableExerciseLink).click();
+        logger.debug("dynamic table exercise link has been clicked");
     }
 
     public void openScrollbarsExercisePage() {
-        waitForBeingClickable(driver, 10, scrollbarsExerciseLink).click();
+        waitForBeingClickable(10, scrollbarsExerciseLink).click();
+        logger.debug("scroll bar exercise link has been clicked");
     }
 
     public void openVisibilityExercisePage() {
-        waitForBeingClickable(driver, 10, visibilityExerciseLink).click();
+        waitForBeingClickable(10, visibilityExerciseLink).click();
+        logger.debug("visibility exercise link has been clicked");
     }
 
     public void openMouseOverExercisePage() {
-        waitForBeingClickable(driver, 10, mouseOverExerciseLink).click();
+        waitForBeingClickable(10, mouseOverExerciseLink).click();
+        logger.debug("mouse over exercise link has been clicked");
     }
 
+    public void openSampleAppExercisePage() {
+        waitForBeingClickable(10, sampleAppExerciseLink).click();
+        logger.debug("sample app exercise link has been clicked");
+    }
 }

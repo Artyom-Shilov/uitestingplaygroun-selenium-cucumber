@@ -7,38 +7,38 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class DriverUtil {
 
-    private static WebDriver driver;
+    private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
     private static final String DRIVER_TYPE_PROPERTY = "browser";
 
     private DriverUtil() {}
 
     public static WebDriver getDriver() {
-        if (driver == null) {
+        if (driver.get() == null) {
             switch (System.getProperty(DRIVER_TYPE_PROPERTY)) {
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
-                    driver = new ChromeDriver();
+                    driver.set(new ChromeDriver());
                     break;
                 case "firefox":
                     WebDriverManager.firefoxdriver().setup();
-                    driver = new FirefoxDriver();
+                    driver.set(new FirefoxDriver());
                     break;
                 case "edge":
                     WebDriverManager.edgedriver().setup();
-                    driver = new FirefoxDriver();
+                    driver.set(new FirefoxDriver());
                     break;
             }
         }
-        driver.manage().window().maximize();
-        return driver;
+        driver.get().manage().window().maximize();
+        return driver.get();
     }
 
     public static void quitDriver() {
-        if (driver != null) {
-            driver.quit();
+        if (driver.get() != null) {
+            driver.get().quit();
         }
-        driver = null;
+        driver.remove();
     }
 
 

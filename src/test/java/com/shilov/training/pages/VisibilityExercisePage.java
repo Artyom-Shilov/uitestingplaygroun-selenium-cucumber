@@ -1,15 +1,16 @@
 package com.shilov.training.pages;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
 import java.util.Map;
 
-import static com.shilov.training.utills.Waiting.*;
-
 public class VisibilityExercisePage extends BasePage {
+
+    private final Logger logger = LogManager.getLogger(VisibilityExercisePage.class);
 
     @FindBy(id = "hideButton")
     private WebElement hideButton;
@@ -40,7 +41,8 @@ public class VisibilityExercisePage extends BasePage {
     }
 
     public VisibilityExercisePage clickHideButton() {
-        waitForBeingClickable(driver, 10, hideButton).click();
+        waitForBeingClickable(10, hideButton).click();
+        logger.debug("hide button has been clicked");
         return this;
     }
 

@@ -1,11 +1,15 @@
 package com.shilov.training.pages;
 
-import com.shilov.training.utills.Waiting;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+
 public class AJAXDataExercisePage extends BasePage {
+
+    private final Logger logger = LogManager.getLogger(AJAXDataExercisePage.class);
 
     @FindBy(id = "ajaxButton")
     private WebElement triggerButton;
@@ -18,12 +22,13 @@ public class AJAXDataExercisePage extends BasePage {
     }
 
     public AJAXDataExercisePage clickTriggerButton() {
-        Waiting.waitForBeingClickable(driver, 10, triggerButton).click();
+        waitForBeingClickable( 10, triggerButton).click();
+        logger.debug("trigger button has been clicked");
         return this;
     }
 
     public String getTextFromAppearedLabel() {
-        return Waiting.waitForBeingClickable(driver, 16, appearedLabel).getText();
+        return waitForBeingClickable(16, appearedLabel).getText();
     }
 
 

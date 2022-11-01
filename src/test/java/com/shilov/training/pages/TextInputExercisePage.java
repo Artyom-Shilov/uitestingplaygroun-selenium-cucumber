@@ -1,6 +1,7 @@
 package com.shilov.training.pages;
 
-import com.shilov.training.utills.Waiting;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,9 +10,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-import static com.shilov.training.utills.Waiting.*;
-
 public class TextInputExercisePage extends BasePage {
+
+    private final Logger logger = LogManager.getLogger(TextInputExercisePage.class);
 
     @FindBy(id = "newButtonName")
     private WebElement inputForNewButtonName;
@@ -26,12 +27,14 @@ public class TextInputExercisePage extends BasePage {
     }
 
     public TextInputExercisePage enterNewNameForButton(String nameForButton) {
-        waitForBeingClickable(driver, 10, inputForNewButtonName).sendKeys(nameForButton);
+        waitForBeingClickable(10, inputForNewButtonName).sendKeys(nameForButton);
+        logger.debug(nameForButton + " has been entered in input field");
         return this;
     }
 
     public TextInputExercisePage applyNewNameForButton() {
-        waitForBeingClickable(driver, 10, buttonForNameChanging).click();
+        waitForBeingClickable(10, buttonForNameChanging).click();
+        logger.debug("button for name changing has been clicked");
         return this;
     }
 

@@ -1,11 +1,14 @@
 package com.shilov.training.pages;
 
-import com.shilov.training.utills.Waiting;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class ClientSideDelayExercisePage extends BasePage {
+
+    private final Logger logger = LogManager.getLogger(ClientSideDelayExercisePage.class);
 
     @FindBy(id = "ajaxButton")
     private WebElement triggerButton;
@@ -18,12 +21,13 @@ public class ClientSideDelayExercisePage extends BasePage {
     }
 
     public ClientSideDelayExercisePage clickTriggerButton() {
-        Waiting.waitForBeingClickable(driver, 10, triggerButton).click();
+        waitForBeingClickable(10, triggerButton).click();
+        logger.debug("trigger button has been clicked");
         return this;
     }
 
     public String getCalculatedDataText() {
-        return Waiting.waitForBeingClickable(driver, 16, calculatedDataElement).getText();
+        return waitForBeingClickable(16, calculatedDataElement).getText();
     }
 
 

@@ -1,11 +1,14 @@
 package com.shilov.training.pages;
 
-import com.shilov.training.utills.Waiting;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class LoadDelayExercisePage extends BasePage {
+
+    private final Logger logger = LogManager.getLogger(LoadDelayExercisePage.class);
 
     @FindBy(xpath = "//*[contains(@class, 'btn btn-primary')]")
     private WebElement buttonAppearingAfterDelay;
@@ -15,7 +18,8 @@ public class LoadDelayExercisePage extends BasePage {
     }
 
     public LoadDelayExercisePage clickButtonAppearingAfterDelay() {
-        Waiting.waitForBeingClickable(driver, 10, buttonAppearingAfterDelay).click();
+        waitForBeingClickable(10, buttonAppearingAfterDelay).click();
+        logger.debug("button appearing after delay has been clicked");
         return this;
     }
 }

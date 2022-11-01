@@ -7,12 +7,7 @@ import io.cucumber.java.Before;
 
 public class Hooks {
 
-    @Before
-    public void setBefore() {
-        PageManager.resetPages();
-    }
-
-    //@After
+    @After
     public void setAfter() {
         DriverUtil.quitDriver();
     }

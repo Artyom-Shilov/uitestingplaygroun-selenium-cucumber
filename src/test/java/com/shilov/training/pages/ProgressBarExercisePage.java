@@ -1,5 +1,7 @@
 package com.shilov.training.pages;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,9 +10,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-import static com.shilov.training.utills.Waiting.*;
-
 public class ProgressBarExercisePage extends BasePage {
+
+    private final Logger logger = LogManager.getLogger(ProgressBarExercisePage.class);
 
     @FindBy(id = "startButton")
     private WebElement startButton;
@@ -31,7 +33,8 @@ public class ProgressBarExercisePage extends BasePage {
     }
 
     public ProgressBarExercisePage clickStartButton() {
-        waitForBeingClickable(driver, 10, startButton).click();
+        waitForBeingClickable(10, startButton).click();
+        logger.debug("start button has been clicked");
         return this;
     }
 
@@ -41,6 +44,7 @@ public class ProgressBarExercisePage extends BasePage {
                 .until((ExpectedCondition<WebElement>) driver
                         -> progressBar.getText().equals(limit + "%") ? stopButton : null)
                 .click();
+        logger.debug("stop button has been clicked, limit is " + limit);
         return this;
     }
 
