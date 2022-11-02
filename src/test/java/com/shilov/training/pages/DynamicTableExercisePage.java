@@ -1,5 +1,6 @@
 package com.shilov.training.pages;
 
+import com.shilov.training.exceptions.DynamicTableException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
@@ -40,13 +41,12 @@ public class DynamicTableExercisePage extends BasePage {
     private int getNumberOfCpuCellInRow() {
         for (int i = 0; i < fieldsOfTable.size(); i++)  {
             if (fieldsOfTable.get(i).getText().equals(CPU_CELL_TEXT)) {
-                int cellNumber = i + 1;
+                int cellNumber = i + 2;
                 logger.debug("number of cpu cell is " + cellNumber);
                 return cellNumber;
             }
         }
-        return -1;
-        //TODO Exception implementation
+        throw new DynamicTableException("could not find CPU cell");
     }
 
     private int getNumberOfChromeCellInColumn() {
@@ -57,8 +57,7 @@ public class DynamicTableExercisePage extends BasePage {
                 return cellNumber;
             }
         }
-        return -1;
-        //TODO Exception implementation
+        throw new DynamicTableException("could not find Chrome cell");
     }
 
     public String getChromeCpuConsumptionFromLabel() {

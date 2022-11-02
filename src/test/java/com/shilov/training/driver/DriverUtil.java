@@ -1,5 +1,6 @@
 package com.shilov.training.driver;
 
+import com.shilov.training.exceptions.BrowserException;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -28,6 +29,8 @@ public class DriverUtil {
                     WebDriverManager.edgedriver().setup();
                     driver.set(new FirefoxDriver());
                     break;
+                default:
+                    throw new BrowserException("unknown browser name: " + DRIVER_TYPE_PROPERTY);
             }
         }
         driver.get().manage().window().maximize();

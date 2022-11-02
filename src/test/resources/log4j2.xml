@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Appenders>
+        <File name="File" fileName="target/logs/exercises.log">
+            <PatternLayout>
+                <Pattern>[%d{HH:mm:ss}] %-5p (%F:%L) - %m%n</Pattern>
+            </PatternLayout>
+        </File>
+    </Appenders>
+    <Loggers>
+        <Root level="DEBUG">
+            <AppenderRef ref="File"/>
+        </Root>
+    </Loggers>
+</Configuration>
