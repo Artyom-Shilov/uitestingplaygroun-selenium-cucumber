@@ -1,3 +1,5 @@
+All exercises (default thread-count = 3):
+mvn -Dbrowser=${browser} clean test
 Dynamic id exercise:
 mvn -Dbrowser=${browser} -Dcucumber.filter.tags=@DynamicId clean test
 Class attribute exercise:
@@ -24,7 +26,9 @@ Visibility exercise
 mvn -Dbrowser=${browser} -Dcucumber.filter.tags=@Visibility clean test
 Mouse over exercise
 mvn -Dbrowser=${browser} -Dcucumber.filter.tags=@MouseOver clean test
+Sample app exercise
+mvn -Dbrowser=${browser} -Dcucumber.filter.tags=@SampleApp clean test
 
-browsers: chrome, firefox, edge
+browser: chrome, firefox, edge
 
 
